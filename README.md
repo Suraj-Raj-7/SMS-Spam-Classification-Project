@@ -1,22 +1,35 @@
-This project is an SMS Spam Classifier built with Python that uses a Multinomial Naive Bayes classifier to distinguish between spam and ham messages.
+SMS Spam Classifier
+This project is a Python-based SMS Spam Classifier that utilizes a machine learning model to accurately identify text messages as either "spam" or "ham" (legitimate). It's a full-stack application with a Flask backend and a simple web interface.
 
-The project includes the following files:
+Technologies Used
+Python: The core programming language for the backend logic and machine learning model.
 
-README.md: A detailed description of the project, including the technology used, the steps for text preprocessing (removing punctuation, lowercasing, stopword filtering, and stemming), and instructions for setting up and running the application.
+Flask: A lightweight web framework used to build the web server and API endpoints for the classifier.
 
-app.py: A Flask web application that serves the front-end and provides a /predict API endpoint for classifying SMS messages. It loads a pre-trained model to make predictions and returns the result as a JSON object.
+scikit-learn: A powerful machine learning library for Python. It is used to build the TfidfVectorizer for text feature extraction and the Multinomial Naive Bayes classifier for the core classification logic.
 
-create_model.py: A Python script to train the classification model. It reads a spam.csv dataset, preprocesses the text, creates a TfidfVectorizer to convert text into numerical features, trains a Multinomial Naive Bayes classifier, and saves the entire pipeline to a file named spam_classifier_model.pkl.
+pandas: Utilized for data manipulation and analysis, specifically for reading and processing the spam.csv dataset.
 
-requirements.txt: Lists the Python dependencies required to run the project, including Flask, pandas, scikit-learn, nltk, and numpy.
+NLTK (Natural Language Toolkit): A library for natural language processing, used for text preprocessing tasks such as stopword removal and stemming.
 
-static/css/style.css: A CSS file that styles the web application's user interface, including the layout, typography, and button appearance.
+HTML, CSS, & JavaScript: The front-end is built with these web technologies to provide a simple and user-friendly interface for entering and classifying messages.
 
-static/js/script.js: A JavaScript file that handles the client-side logic. It listens for a button click, sends the user's message to the /predict endpoint in app.py, and dynamically updates the webpage with the returned prediction.
+Project Structure
+app.py: Contains the Flask application, which serves the index.html file and provides the /predict API endpoint to classify user-submitted messages.
 
-spam.csv: The dataset of SMS messages used for training the model, with messages labeled as either "ham" (legitimate) or "spam".
+create_model.py: A standalone script that loads the spam.csv dataset, preprocesses the data, trains the machine learning pipeline (vectorizer + classifier), and saves it as spam_classifier_model.pkl.
 
-spam_classifier_model.pkl: The saved, pre-trained machine learning model pipeline, which includes the vectorizer and the classifier. This file is loaded by app.py to make predictions without needing to retrain the model.
+requirements.txt: Lists all the necessary Python libraries and their versions for dependency management.
+
+spam.csv: The dataset used for training the model.
+
+spam_classifier_model.pkl: The pre-trained machine learning model file that the Flask application uses for predictions.
+
+templates/index.html: The HTML file for the web interface.
+
+static/css/style.css: The CSS file for styling the web page.
+
+static/js/script.js: The JavaScript file for handling front-end interactions and communicating with the Flask backend.
 
 Activate the virtual environment:
 venv\Scripts\activate
